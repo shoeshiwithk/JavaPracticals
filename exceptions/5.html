@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>5. Write a Java program that reads a file and throws an exception if the file is empty.</span>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+class main {
+    public static void checkIfFileIsEmpty(String fileName) throws Exception {
+        File file = new File(fileName);
+        
+        if (!file.exists() || file.length() == 0) {
+            throw new Exception("The file is empty or does not exist.");
+        }
+        
+        Scanner scanner = new Scanner(file);
+        // Read the file to make sure it's not empty (we already checked file length)
+        if (!scanner.hasNext()) {
+            throw new Exception("The file is empty.");
+        }
+
+        while (scanner.hasNextLine()) {
+            System.out.println(scanner.nextLine());
+        }
+        scanner.close();
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkIfFileIsEmpty("numbers.txt");
+        } catch (Exception e) {
+            System.out.println("Caught an exception: " + e.getMessage());
+        }
+    }
+}
+<img src="ss/5.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

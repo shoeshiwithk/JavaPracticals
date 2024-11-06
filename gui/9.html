@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>9. Create a simple AWT application that displays a Label with Custom Layout.</span>
+import java.awt.*;
+import java.awt.event.*;
+
+class CustomLayout implements LayoutManager {
+    public void addLayoutComponent(String name, Component comp) {}
+
+    public void removeLayoutComponent(Component comp) {}
+
+    public Dimension preferredLayoutSize(Container parent) {
+        return new Dimension(300, 100);
+    }
+
+    public Dimension minimumLayoutSize(Container parent) {
+        return new Dimension(200, 50);
+    }
+
+    public void layoutContainer(Container parent) {
+        int width = parent.getWidth();
+        int height = parent.getHeight();
+
+        Component label = parent.getComponent(0);
+
+        int x = (width - label.getPreferredSize().width) / 2;
+        int y = (height - label.getPreferredSize().height) / 2;
+
+        label.setBounds(x, y, label.getPreferredSize().width, label.getPreferredSize().height);
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Frame frame = new Frame("AWT Custom Layout with Label");
+
+        Label label = new Label("This is a Custom Layout Label");
+
+        frame.setLayout(new CustomLayout());
+
+        frame.add(label);
+
+        frame.setSize(300, 100);
+        frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+
+<img src="ss/9.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

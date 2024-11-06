@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>13. Java Program to Close the Frame using WindowAdapter Class</span>
+import javax.swing.JFrame;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+class main {
+    public static void main(String[] args) {
+        // Create the main frame
+        JFrame frame = new JFrame("Window Adapter Example");
+
+        // Set frame properties
+        frame.setSize(300, 200);
+        frame.setLayout(null);
+
+        // Add window listener to handle window closing event
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.out.println("Window is closing...");
+                frame.dispose();  // Close the frame
+            }
+        });
+
+        // Display the frame
+        frame.setVisible(true);
+
+        System.out.println("Program is ready to handle window 
+        closing event using WindowAdapter.");
+    }
+}
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

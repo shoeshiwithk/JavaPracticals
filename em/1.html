@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>1. Java Program to Display Some Text in the Frame using Labels</span>
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+class main {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Label Example");
+        JLabel label = new JLabel("Hello, Welcome to Java!", 
+        JLabel.CENTER);
+        
+        frame.add(label);
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        System.out.println("Displayed text in the frame: 'Hello, 
+        Welcome to Java!'");
+    }
+}
+
+<img src="ss/1.png" style="height: 250px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

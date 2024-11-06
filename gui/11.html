@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>11. Create a simple AWT application that displays a Choice with Custom Layout.</span>
+import java.awt.*;
+import java.awt.event.*;
+
+class CustomLayout implements LayoutManager {
+    public void addLayoutComponent(String name, Component comp) {}
+
+    public void removeLayoutComponent(Component comp) {}
+
+    public Dimension preferredLayoutSize(Container parent) {
+        return new Dimension(300, 100);
+    }
+
+    public Dimension minimumLayoutSize(Container parent) {
+        return new Dimension(200, 50);
+    }
+
+    public void layoutContainer(Container parent) {
+        int width = parent.getWidth();
+        int height = parent.getHeight();
+
+        Component choice = parent.getComponent(0);
+
+        int x = (width - choice.getPreferredSize().width) / 2;
+        int y = (height - choice.getPreferredSize().height) / 2;
+
+        choice.setBounds(x, y, choice.getPreferredSize().width, choice.getPreferredSize().height);
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Frame frame = new Frame("AWT Custom Layout with Choice");
+
+        Choice choice = new Choice();
+        choice.add("Option 1");
+        choice.add("Option 2");
+        choice.add("Option 3");
+        choice.add("Option 4");
+
+        frame.setLayout(new CustomLayout());
+
+        frame.add(choice);
+
+        frame.setSize(300, 100);
+        frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+
+<img src="ss/11.png" style="height: 250px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

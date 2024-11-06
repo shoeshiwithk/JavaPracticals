@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>14. Java Program to Check Which Fonts are Available in a Local 
+System</span>
+import java.awt.GraphicsEnvironment;
+
+class main {
+    public static void main(String[] args) {
+        // Get the GraphicsEnvironment of the local system
+        GraphicsEnvironment ge = GraphicsEnvironment.
+        getLocalGraphicsEnvironment();
+
+        // Get the list of all available font family names
+        String[] fontNames = ge.getAvailableFontFamilyNames();
+
+        // Display the available font names
+        System.out.println("Available Fonts on your system:");
+        for (String fontName : fontNames) {
+            System.out.println(fontName);
+        }
+    }
+}
+<img src="ss/14.png" style="height: 450px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

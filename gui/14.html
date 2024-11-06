@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>14. Create a simple AWT application that displays a List with FlowLayout manager.</span>
+import java.awt.*;
+import java.awt.event.*;
+
+class main {
+    public static void main(String[] args) {
+        Frame frame = new Frame("AWT List with FlowLayout");
+
+        List list = new List();
+        list.add("Item 1");
+        list.add("Item 2");
+        list.add("Item 3");
+        list.add("Item 4");
+        
+        frame.setLayout(new FlowLayout());
+
+        frame.add(list);
+
+        frame.setSize(300, 150);
+        frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+
+<img src="ss/14.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>6. Write a Java program that reads a list of integers from the user and throws an exception if any numbers are duplicates</span>
+import java.util.HashSet;
+import java.util.Scanner;
+import java.util.Set;
+
+class main {
+    public static void checkForDuplicates(int[] numbers) throws Exception {
+        Set&lt;Integer&gt; numberSet = new HashSet&lt;&gt;();
+        
+        for (int number : numbers) {
+            if (!numberSet.add(number)) {
+                throw new Exception("Duplicate number found: " + number);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter the number of integers:");
+        int n = scanner.nextInt();
+        
+        int[] numbers = new int[n];
+        System.out.println("Enter " + n + " integers:");
+        
+        for (int i = 0; i &lt; n; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+        
+        try {
+            checkForDuplicates(numbers);
+            System.out.println("No duplicates found.");
+        } catch (Exception e) {
+            System.out.println("Caught an exception: " + e.getMessage());
+        }
+        
+        scanner.close();
+    }
+}
+<img src="ss/6.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

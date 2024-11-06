@@ -1,0 +1,48 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>5. Java Program to Handle KeyBoardEvent</span>
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+
+class main {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Keyboard Event Example");
+
+        JLabel label = new JLabel("Press any key...");
+        label.setBounds(50, 50, 200, 30);
+
+        frame.add(label);
+
+        // Add KeyListener to handle key events
+        frame.addKeyListener(new KeyAdapter() {
+            public void keyPressed(KeyEvent e) {
+                char key = e.getKeyChar();  // Get the key 
+                character
+                label.setText("Key Pressed: " + key);
+            }
+        });
+
+        frame.setLayout(null);
+        frame.setSize(300, 150);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        System.out.println("Program is ready to handle keyboard 
+        events.");
+    }
+}
+<img src="ss/5.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

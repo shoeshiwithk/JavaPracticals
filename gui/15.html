@@ -1,0 +1,70 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>15. Create a simple AWT application that displays a List with Custom Layout.</span>
+import java.awt.*;
+import java.awt.event.*;
+
+class CustomLayout implements LayoutManager {
+    public void addLayoutComponent(String name, Component comp) {}
+
+    public void removeLayoutComponent(Component comp) {}
+
+    public Dimension preferredLayoutSize(Container parent) {
+        return new Dimension(300, 150);
+    }
+
+    public Dimension minimumLayoutSize(Container parent) {
+        return new Dimension(200, 50);
+    }
+
+    public void layoutContainer(Container parent) {
+        int width = parent.getWidth();
+        int height = parent.getHeight();
+
+        Component list = parent.getComponent(0);
+
+        int x = (width - list.getPreferredSize().width) / 2;
+        int y = (height - list.getPreferredSize().height) / 2;
+
+        list.setBounds(x, y, list.getPreferredSize().width, list.getPreferredSize().height);
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Frame frame = new Frame("AWT List with Custom Layout");
+
+        List list = new List();
+        list.add("Item 1");
+        list.add("Item 2");
+        list.add("Item 3");
+        list.add("Item 4");
+
+        frame.setLayout(new CustomLayout());
+
+        frame.add(list);
+
+        frame.setSize(300, 200);
+        frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+
+<img src="ss/15.png" style="height: 250px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>4. Write a Java program that reads a list of numbers from a file and throws an exception if any of the numbers are positive</span>
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+class main {
+    public static void checkNumbersInFile(String fileName) throws Exception {
+        File file = new File(fileName);
+        Scanner scanner = new Scanner(file);
+
+        while (scanner.hasNext()) {
+            if (scanner.hasNextInt()) {
+                int number = scanner.nextInt();
+                if (number > 0) {
+                    throw new Exception("Found a positive number: " + number);
+                }
+            } else {
+                scanner.next();
+            }
+        }
+        scanner.close();
+    }
+
+    public static void main(String[] args) {
+        try {
+            checkNumbersInFile("numbers.txt");
+        } catch (Exception e) {
+            System.out.println("Caught an exception: " + e.getMessage());
+        }
+    }
+}
+<img src="ss/4.png" style="height: 120px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

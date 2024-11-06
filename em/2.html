@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>2. Java Program to Create Text Area and Password Field</span>
+import javax.swing.JFrame;
+import javax.swing.JTextArea;
+import javax.swing.JPasswordField;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.FlowLayout;
+
+class main {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Text Area and Password Field 
+        Example");
+        
+        JTextArea textArea = new JTextArea(5, 20);
+        JPasswordField passwordField = new JPasswordField(20);
+        
+        JPanel panel = new JPanel();
+        panel.setLayout(new FlowLayout());
+        
+        panel.add(new JLabel("Enter Text:"));
+        panel.add(textArea);
+        panel.add(new JLabel("Enter Password:"));
+        panel.add(passwordField);
+        
+        frame.add(panel);
+        frame.setSize(300, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        System.out.println("Displayed Text Area and Password 
+        Field in the frame.");
+    }
+}
+
+<img src="ss/2.png" style="height: 250px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

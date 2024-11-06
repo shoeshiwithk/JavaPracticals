@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>7. Create a simple AWT application that displays a Checkbox with Custom Layout.</span>
+import java.awt.*;
+import java.awt.event.*;
+
+class CustomLayout implements LayoutManager {
+    public void addLayoutComponent(String name, Component comp) {}
+
+    public void removeLayoutComponent(Component comp) {}
+
+    public Dimension preferredLayoutSize(Container parent) {
+        return new Dimension(300, 100);
+    }
+
+    public Dimension minimumLayoutSize(Container parent) {
+        return new Dimension(200, 50);
+    }
+
+    public void layoutContainer(Container parent) {
+        int width = parent.getWidth();
+        int height = parent.getHeight();
+
+        Component checkbox = parent.getComponent(0);
+
+        int x = (width - checkbox.getPreferredSize().width) / 2;
+        int y = (height - checkbox.getPreferredSize().height) / 2;
+
+        checkbox.setBounds(x, y, checkbox.getPreferredSize().width, checkbox.getPreferredSize().height);
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Frame frame = new Frame("AWT Custom Layout with Checkbox");
+
+        Checkbox checkbox = new Checkbox("Accept Terms and Conditions");
+
+        frame.setLayout(new CustomLayout());
+
+        frame.add(checkbox);
+
+        frame.setSize(300, 100);
+        frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+
+<img src="ss/7.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

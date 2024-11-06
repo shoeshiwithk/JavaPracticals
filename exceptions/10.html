@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>10. Write a Java program to show an example of nested try block.</span>
+class main {
+    public static void main(String[] args) {
+        try {
+            System.out.println("Outer try block");
+            
+            try {
+                System.out.println("Inner try block");
+                int result = 10 / 0;  
+            } catch (ArithmeticException e) {
+                System.out.println("Caught ArithmeticException in inner try block: " + e.getMessage());
+            }
+
+            String str = null;
+            System.out.println(str.length());  
+
+        } catch (NullPointerException e) {
+            System.out.println("Caught NullPointerException in outer try block: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Caught a general exception: " + e.getMessage());
+        }
+    }
+}
+
+<img src="ss/10.png" style="height: 80px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

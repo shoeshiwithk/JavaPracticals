@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>11. Java Program to Create a List Box to Select Multiple Items and 
+Display it in the Frame</span>
+import javax.swing.JFrame;
+import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.JButton;
+import javax.swing.DefaultListModel;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+class main {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("List Box Example");
+
+        // Create a list of items for the list box
+        String[] items = {"Apple", "Banana", "Cherry", "Grape", 
+        "Orange", "Pineapple", "Mango"};
+
+        // Create a JList and allow multiple selections
+        JList&lt;String&gt; listBox = new JList&lt;&gt;(items);
+        listBox.setSelectionMode(javax.swing.ListSelectionModel.
+        MULTIPLE_INTERVAL_SELECTION);
+
+        // Wrap the JList inside a JScrollPane to make it scrollable
+        JScrollPane scrollPane = new JScrollPane(listBox);
+        scrollPane.setBounds(50, 50, 150, 100);
+
+        // Create a button to display the selected items
+        JButton button = new JButton("Show Selected Items");
+        button.setBounds(50, 160, 200, 30);
+
+        // Create a label to display the selected items
+        JLabel label = new JLabel("Selected Items: ");
+        label.setBounds(50, 200, 250, 30);
+
+        // ActionListener for button click
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Get the selected values from the list box
+                String[] selectedItems = listBox.
+                getSelectedValuesList().toArray(new String[0]);
+
+                // Display the selected items in the label
+                String selectedText = "Selected Items: ";
+                if (selectedItems.length &gt; 0) {
+                    selectedText += String.join(", ", 
+                    selectedItems);
+                } else {
+                    selectedText += "None";
+                }
+                label.setText(selectedText);
+            }
+        });
+
+        // Add components to the frame
+        frame.add(scrollPane);
+        frame.add(button);
+        frame.add(label);
+
+        // Frame settings
+        frame.setLayout(null);
+        frame.setSize(300, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        System.out.println("Program is ready to select multiple 
+        items from the list.");
+    }
+}
+        <img src="ss/11.png" style="height: 250px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

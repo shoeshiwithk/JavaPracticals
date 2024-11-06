@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>6. Java Program to Handle MouseEvent</span>
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+class main {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Mouse Event Example");
+
+        JLabel label = new JLabel("Click anywhere inside the 
+        frame");
+        label.setBounds(50, 50, 300, 30);
+
+        frame.add(label);
+
+        // Add MouseListener to handle mouse events
+        frame.addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                int x = e.getX();  // Get X coordinate of the 
+                mouse click
+                int y = e.getY();  // Get Y coordinate of the 
+                mouse click
+                label.setText("Mouse Clicked at: (" + x + ", " 
+                + y + ")");
+            }
+        });
+
+        frame.setLayout(null);
+        frame.setSize(400, 200);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        System.out.println("Program is ready to handle mouse 
+        events.");
+    }
+}
+<img src="ss/6.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

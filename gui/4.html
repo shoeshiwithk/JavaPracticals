@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>4. Create a simple AWT application that displays a TextField with FlowLayout manager.</span>
+import java.awt.*;
+import java.awt.event.*;
+
+class main {
+    public static void main(String[] args) {
+        Frame frame = new Frame("AWT TextField with FlowLayout");
+
+        TextField textField = new TextField("Enter text here");
+
+        frame.setLayout(new FlowLayout());
+
+        frame.add(textField);
+
+        frame.setSize(300, 100);
+        frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+
+<img src="ss/4.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

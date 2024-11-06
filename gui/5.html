@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>5. Create a simple AWT application that displays a TextField with Custom Layout.</span>
+import java.awt.*;
+import java.awt.event.*;
+
+class CustomLayout implements LayoutManager {
+    public void addLayoutComponent(String name, Component comp) {}
+
+    public void removeLayoutComponent(Component comp) {}
+
+    public Dimension preferredLayoutSize(Container parent) {
+        return new Dimension(300, 100);
+    }
+
+    public Dimension minimumLayoutSize(Container parent) {
+        return new Dimension(200, 50);
+    }
+
+    public void layoutContainer(Container parent) {
+        int width = parent.getWidth();
+        int height = parent.getHeight();
+
+        Component textField = parent.getComponent(0);
+
+        int x = (width - textField.getPreferredSize().width) / 2;
+        int y = (height - textField.getPreferredSize().height) / 2;
+
+        textField.setBounds(x, y, textField.getPreferredSize().width, textField.getPreferredSize().height);
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Frame frame = new Frame("AWT Custom Layout Example");
+
+        TextField textField = new TextField("Enter text here");
+
+        frame.setLayout(new CustomLayout());
+
+        frame.add(textField);
+
+        frame.setSize(300, 100);
+        frame.setVisible(true);
+
+        frame.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                System.exit(0);
+            }
+        });
+    }
+}
+
+<img src="ss/5.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

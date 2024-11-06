@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>7. Write a Java program to create a method that takes a string as input and throws an exception if the string does not contain vowels.</span>
+import java.util.Scanner;
+
+class main {
+    public static void checkVowels(String input) throws Exception {
+        if (!input.matches(".*[AEIOUaeiou].*")) {
+            throw new Exception("The string does not contain any vowels.");
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        try {
+            checkVowels(input);  
+            System.out.println("The string contains vowels.");
+        } catch (Exception e) {
+            System.out.println("Caught an exception: " + e.getMessage());
+        }
+
+        scanner.close();  // Close the scanner to avoid resource leaks
+    }
+}
+
+<img src="ss/7.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

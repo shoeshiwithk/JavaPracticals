@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>8. Write a Java method to find all twin prime numbers less than 100.</span>
+class main {
+    public static void main(String[] args) {
+        System.out.println("Twin prime numbers less than 100:");
+        for (int i = 2; i &lt; 100 - 2; i++) {
+            if (isPrime(i) && isPrime(i + 2)) {
+                System.out.println(i + " and " + (i + 2));
+            }
+        }
+    }
+
+    public static boolean isPrime(int num) {
+        if (num &lt;= 1) {
+            return false;
+        }
+        for (int i = 2; i * i &lt;= num; i++) {
+            if (num % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+<img src="ss/9.png" style="height: 200px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

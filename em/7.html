@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>7. Java Program to Get and Set State and Get Label of a Check Box</span>
+import javax.swing.JFrame;
+import javax.swing.JCheckBox;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+class main {
+    public static void main(String[] args) {
+        JFrame frame = new JFrame("Checkbox Example");
+
+        JCheckBox checkBox = new JCheckBox("Agree to Terms and 
+        Conditions");
+        checkBox.setBounds(50, 50, 250, 30);
+
+        JButton button = new JButton("Check Status");
+        button.setBounds(50, 100, 150, 30);
+
+        JLabel label = new JLabel("Checkbox is unchecked.");
+        label.setBounds(50, 150, 250, 30);
+
+        button.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                // Get the state of the checkbox
+                boolean isSelected = checkBox.isSelected();
+                
+                // Set label text based on the checkbox state
+                if (isSelected) {
+                    label.setText("Checkbox is selected: " + 
+                    checkBox.getText());
+                } else {
+                    label.setText("Checkbox is unchecked.");
+                }
+            }
+        });
+
+        frame.add(checkBox);
+        frame.add(button);
+        frame.add(label);
+
+        frame.setLayout(null);
+        frame.setSize(350, 250);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        System.out.println("Program is ready to handle checkbox 
+        events.");
+    }
+}
+<img src="ss/7.png" style="height: 250px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

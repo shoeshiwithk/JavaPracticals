@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>1. Write a Java program that throws an exception and catch it using a try-catch block.</span>
+class main {
+    public static void throwException() {
+        throw new ArithmeticException("This is an ArithmeticException.");
+    }
+
+    public static void main(String[] args) {
+        try {
+            throwException();
+        } catch (ArithmeticException e) {
+            System.out.println("Caught an exception: " + e.getMessage());
+        } finally {
+            System.out.println("Finally block executed.");
+        }
+    }
+}
+<img src="ss/1.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

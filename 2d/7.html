@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>7. Program to display the upper triangular matrix</span>
+import java.util.Scanner;
+
+class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the size of the square matrix (n x n): ");
+        int n = scanner.nextInt();
+        int[][] matrix = new int[n][n];
+
+        System.out.println("Enter elements for the matrix:");
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = 0; j &lt; n; j++) {
+                System.out.print("Element [" + i + "][" + j + "]: ");
+                matrix[i][j] = scanner.nextInt();
+            }
+        }
+
+        System.out.println("The upper triangular matrix is:");
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = 0; j &lt; n; j++) {
+                if (i &lt;= j) {
+                    System.out.print(matrix[i][j] + "\t");
+                }
+            }
+            System.out.println();
+        }
+
+        scanner.close();
+    }
+}
+
+        <img src="ss/7.png" style="height: 300px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

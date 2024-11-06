@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>14. Program to sort the elements of an array in ascending order</span>
+class main {
+    public static void main(String[] args) {
+        int[] array = {40, 10, 50, 20, 30};
+        
+        for (int i = 0; i &lt; array.length - 1; i++) {
+            for (int j = i + 1; j &lt; array.length; j++) {
+                if (array[i] > array[j]) {
+                    int temp = array[i];
+                    array[i] = array[j];
+                    array[j] = temp;
+                }
+            }
+        }
+
+        for (int i = 0; i &lt; array.length; i++) {
+            System.out.print(array[i] + " ");
+        }
+    }
+}
+
+<img src="ss/14.png" style="height: 80px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

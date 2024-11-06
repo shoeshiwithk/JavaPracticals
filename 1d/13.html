@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>13. Program to right rotate the elements of an array</span>
+class main {
+    public static void main(String[] args) {
+        int[] array = {10, 20, 30, 40, 50};
+        int n = 2;
+        int length = array.length;
+        int[] rotatedArray = new int[length];
+
+        for (int i = 0; i &lt; length; i++) {
+            rotatedArray[(i + n) % length] = array[i];
+        }
+
+        for (int i = 0; i &lt; length; i++) {
+            System.out.print(rotatedArray[i] + " ");
+        }
+    }
+}
+
+<img src="ss/13.png" style="height: 90px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

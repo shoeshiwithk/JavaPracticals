@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>10. Program to find the transpose of a given matrix</span>
+class main {
+    public static void main(String[] args) {
+        int[][] matrix = {
+            {1, 2, 3},
+            {4, 5, 6},
+            {7, 8, 9}
+        };
+
+        int rows = matrix.length;
+        int cols = matrix[0].length;
+        int[][] transpose = new int[cols][rows];
+
+        // Finding the transpose
+        for (int i = 0; i &lt; rows; i++) {
+            for (int j = 0; j &lt; cols; j++) {
+                transpose[j][i] = matrix[i][j];
+            }
+        }
+
+        // Printing the transpose matrix
+        System.out.println("Transpose of the matrix:");
+        for (int i = 0; i &lt; cols; i++) {
+            for (int j = 0; j &lt; rows; j++) {
+                System.out.print(transpose[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+<img src="ss/10.png" style="height: 110px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

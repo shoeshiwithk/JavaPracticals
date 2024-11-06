@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>5. Program to determine if two matrices are equal</span>
+import java.util.Scanner;
+
+class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of rows: ");
+        int rows = scanner.nextInt();
+        System.out.print("Enter the number of columns: ");
+        int cols = scanner.nextInt();
+
+        int[][] matrix1 = new int[rows][cols];
+        int[][] matrix2 = new int[rows][cols];
+
+        System.out.println("Enter elements for the first matrix:");
+        for (int i = 0; i &lt; rows; i++) {
+            for (int j = 0; j &lt; cols; j++) {
+                System.out.print("Element [" + i + "][" + j + "]: ");
+                matrix1[i][j] = scanner.nextInt();
+            }
+        }
+
+        System.out.println("Enter elements for the second matrix:");
+        for (int i = 0; i &lt; rows; i++) {
+            for (int j = 0; j &lt; cols; j++) {
+                System.out.print("Element [" + i + "][" + j + "]: ");
+                matrix2[i][j] = scanner.nextInt();
+            }
+        }
+
+        boolean areEqual = true;
+        for (int i = 0; i &lt; rows; i++) {
+            for (int j = 0; j &lt; cols; j++) {
+                if (matrix1[i][j] != matrix2[i][j]) {
+                    areEqual = false;
+                    break;
+                }
+            }
+        }
+
+        if (areEqual) {
+            System.out.println("The two matrices are equal.");
+        } else {
+            System.out.println("The two matrices are not equal.");
+        }
+
+        scanner.close();
+    }
+}
+        <img src="ss/5.png" style="height: 300px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

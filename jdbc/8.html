@@ -1,0 +1,93 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>8. Create a Scrollable Updateable Resultset and insert a new row, update an existing row and delete the row from Resultset and also the changes should be made to the database also. The values should be inserted, updated and deleted by the user only.</span>
+import java.sql.*;
+import java.io.*;
+class jdbc8{
+    private static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    private static Connection con;
+    private static PreparedStatement st;
+    private static ResultSet view;
+    public static void main(String[] args) {
+        try {
+  Class.forName("com.mysql.jdbc.Driver");
+  con = DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu", "root", "root");
+  Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
+            System.out.println("Choose:\n1. Insert\n2. Update\n3. Delete");
+            int choice = Integer.parseInt(reader.readLine());
+            switch (choice) {
+                case 1:
+                    insert();
+                    break;
+                case 2:
+                    update();
+                    break;
+                case 3:
+                    delete();
+                    break;
+                default:
+                    System.out.println("Invalid choice.");
+            }
+
+        } catch (ClassNotFoundException | SQLException | IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (view != null) view.close();
+                if (st != null) st.close();
+                if (con != null) con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void insert() throws SQLException, IOException {
+        String sql = "INSERT INTO student (rollno,name) VALUES (?, ?)";
+        st = con.prepareStatement(sql);
+        System.out.println("Give RollNo and Name (leave blank for null) : ");
+        System.out.print("RollNo: ");
+        int rollno = Integer.parseInt(reader.readLine());
+        System.out.print("Name: ");
+        String name = reader.readLine();
+        st.setInt(1,rollno);
+        st.setString(2,name);
+        int res = st.executeUpdate();
+        System.out.println(res + " record(s) added.");
+    }
+    private static void update() throws SQLException, IOException {
+        System.out.print("Enter the RollNo of the record to update: ");
+        int rollno = Integer.parseInt(reader.readLine());
+        String sql = "UPDATE student SET name = ? WHERE rollno = ?";
+        st = con.prepareStatement(sql);
+        System.out.print("New Name: ");
+        String name = reader.readLine();
+        st.setInt(2, rollno);
+        st.setString(1,name);
+        
+        int res = st.executeUpdate();
+        System.out.println(res + " record(s) updated.");
+    }
+
+    private static void delete() throws SQLException, IOException {
+        System.out.print("Enter the RollNo of the record to delete: ");
+        int rollno = Integer.parseInt(reader.readLine());
+        String sql = "DELETE FROM student WHERE rollno = ?";
+        st = con.prepareStatement(sql);
+        st.setInt(1, rollno);
+        int res = st.executeUpdate();
+        System.out.println(res + " record(s) deleted.");
+    }
+}
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>4. Write a Java program that performs matrix multiplication using multiple threads.</span>
+class main {
+    public static void main(String[] args) throws InterruptedException {
+        int[][] matrixA = {
+            {1, 2},
+            {3, 4}
+        };
+        
+        int[][] matrixB = {
+            {5, 6},
+            {7, 8}
+        };
+        
+        int[][] result = new int[matrixA.length][matrixB[0].length];
+        
+        Thread[] threads = new Thread[matrixA.length * matrixB[0].length];
+        int threadIndex = 0;
+        
+        for (int i = 0; i &lt; matrixA.length; i++) {
+            for (int j = 0; j &lt; matrixB[0].length; j++) {
+                final int row = i;
+                final int col = j;
+                
+                threads[threadIndex] = new Thread() {
+                    public void run() {
+                        result[row][col] = 0;
+                        for (int k = 0; k &lt; matrixA[0].length; k++) {
+                            result[row][col] += matrixA[row][k] * matrixB[k][col];
+                        }
+                    }
+                };
+                threads[threadIndex].start();
+                threadIndex++;
+            }
+        }
+        
+        for (Thread t : threads) {
+            t.join();
+        }
+        
+        System.out.println("Result of Matrix Multiplication:");
+        for (int i = 0; i &lt; result.length; i++) {
+            for (int j = 0; j &lt; result[i].length; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+<img src="ss/4.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

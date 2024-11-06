@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>9. Create a Java Program to show, insert, update, delete of the table in Java API through PreparedStatement</span>
+import java.sql.*;
+import java.io.*;
+class jdbc9 {
+    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    static Connection con;
+    static Statement st;
+    static PreparedStatement pst;
+    public static void main(String[] args) throws ClassNotFoundException, java.sql.SQLException, IOException {
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu", "root", "root");
+        st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        System.out.println("Choose option:\n1. Insert\n2. Update\n3. Delete\n4. See table");
+        int option = Integer.parseInt(reader.readLine());
+        switch (option) {
+            case 1:
+                insert();
+                break;
+            case 2:
+                update();
+                break;
+            case 3:
+                delete();
+                break;
+            case 4:
+                show();
+                break;
+            default:
+                System.out.println("Invalid option!");
+                break;
+        }
+    }
+
+    static void insert() throws java.sql.SQLException, IOException {
+        pst = con.prepareStatement("INSERT INTO employee(sno,name,salary) VALUES(?,?,?)");
+        System.out.println("Enter Serial number :");
+        int sno = Integer.parseInt(reader.readLine());        
+        System.out.println("Enter name:");
+        String name = reader.readLine();
+        System.out.println("Enter salary :");
+        int salary = Integer.parseInt(reader.readLine());
+        pst.setInt(1,sno);
+        pst.setString(2, name);
+        pst.setInt(3, salary);
+        int res = pst.executeUpdate();
+        System.out.println(res + " record(s) inserted");
+    }
+
+    static void update() throws java.sql.SQLException, IOException {
+        pst = con.prepareStatement("UPDATE employee SET salary=? WHERE sno=?");
+        System.out.println("Enter Sno whose Salary to update:");
+        int sno = Integer.parseInt(reader.readLine());
+        System.out.println("Enter new salary:");
+        int salary = Integer.parseInt(reader.readLine());
+        
+ pst.setInt(2,sno);
+pst.setInt(1,salary);
+       
+        int res = pst.executeUpdate();
+        System.out.println(res + " record(s) updated");
+    }
+
+    static void delete() throws java.sql.SQLException, IOException {
+        pst = con.prepareStatement("DELETE FROM employee WHERE sno=?");
+        System.out.println("Enter sno to delete:");
+        int sno = Integer.parseInt(reader.readLine());
+        pst.setInt(1,sno);
+        int res = pst.executeUpdate();
+        System.out.println(res + " record(s) deleted");
+    }
+
+    static void show() throws java.sql.SQLException {
+        pst = con.prepareStatement("SELECT * FROM employee");
+        ResultSet view = pst.executeQuery();
+        System.out.println("Data:");
+        System.out.println("Sno     Name     Salary");
+        while (view.next()) {
+            System.out.println(view.getString("sno") + "     "+view.getString("name") + "        " + view.getFloat("salary"));
+        }
+    }
+}
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

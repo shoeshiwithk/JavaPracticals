@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>5. Write a Java program that calculates the sum of all prime numbers up to a given limit using multiple threads.</span>
+class main {
+    public static void main(String[] args) throws InterruptedException {
+        int limit = 100;
+        int numThreads = 4;
+        int range = limit / numThreads;
+
+        Thread[] threads = new Thread[numThreads];
+        final long[] partialSums = new long[numThreads];
+        
+        for (int i = 0; i &lt; numThreads; i++) {
+            final int start = i * range + 1;
+            final int end = (i == numThreads - 1) ? limit : (i + 1) * range;
+            
+            threads[i] = new Thread() {
+                public void run() {
+                    long sum = 0;
+                    for (int j = start; j &lt;= end; j++) {
+                        if (isPrime(j)) {
+                            sum += j;
+                        }
+                    }
+                    partialSums[i] = sum;
+                }
+            };
+            threads[i].start();
+        }
+
+        for (Thread t : threads) {
+            t.join();
+        }
+
+        long totalSum = 0;
+        for (long partialSum : partialSums) {
+            totalSum += partialSum;
+        }
+
+        System.out.println("Sum of all prime numbers up to " + limit + " is: " + totalSum);
+    }
+
+    public static boolean isPrime(int num) {
+        if (num &lt;= 1) return false;
+        for (int i = 2; i &lt;= Math.sqrt(num); i++) {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
+
+<img src="ss/5.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

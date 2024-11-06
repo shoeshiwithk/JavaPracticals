@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>2. Write a Java program that creates two threads to find and print even and odd numbers from 1 to 20.</span>
+class main {
+    public static void main(String[] args) {
+        Thread evenThread = new Thread() {
+            public void run() {
+                for (int i = 2; i &lt;= 20; i += 2) {
+                    System.out.println("Even: " + i);
+                }
+            }
+        };
+        
+        Thread oddThread = new Thread() {
+            public void run() {
+                for (int i = 1; i &lt;= 19; i += 2) {
+                    System.out.println("Odd: " + i);
+                }
+            }
+        };
+        
+        evenThread.start();
+        oddThread.start();
+    }
+}
+
+<img src="ss/2.png" style="height: 350px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

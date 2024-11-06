@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>3. Insert the row in the table in the database from Java API.</span>
+import java.sql.*;
+class jdbc3{
+public static void main(String s[]) throws java.lang.ClassNotFoundException,SQLException{
+Class.forName("com.mysql.jdbc.Driver");
+Connection c1=DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu","root","root");
+Statement st=c1.createStatement();
+System.out.println(st.executeUpdate("insert into student values(4,'Jyoti')"));
+}}
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

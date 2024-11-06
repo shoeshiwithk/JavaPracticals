@@ -1,0 +1,76 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>7. Write a Java program that creates a bank account with concurrent deposits and withdrawals using threads.</span>
+import java.util.*;
+
+class main {
+    public static void main(String[] args) throws InterruptedException {
+        Scanner scanner = new Scanner(System.in);
+        BankAccount account = new BankAccount(1000);
+
+        Thread depositThread = new Thread() {
+            public void run() {
+                System.out.print("Enter deposit amount: ");
+                int depositAmount = scanner.nextInt();
+                account.deposit(depositAmount);
+                System.out.println("Deposited " + depositAmount + ", balance: " + account.getBalance());
+            }
+        };
+
+        Thread withdrawThread = new Thread() {
+            public void run() {
+                System.out.print("Enter withdrawal amount: ");
+                int withdrawAmount = scanner.nextInt();
+                account.withdraw(withdrawAmount);
+                System.out.println("Withdrew " + withdrawAmount + ", balance: " + account.getBalance());
+            }
+        };
+
+        depositThread.start();
+        depositThread.join(); // Wait for deposit thread to finish before asking for withdrawal
+
+        withdrawThread.start();
+        withdrawThread.join(); // Wait for withdraw thread to finish before showing final balance
+
+        System.out.println("Final balance: " + account.getBalance());
+        scanner.close();
+    }
+}
+
+class BankAccount {
+    private int balance;
+
+    public BankAccount(int initialBalance) {
+        this.balance = initialBalance;
+    }
+
+    public synchronized void deposit(int amount) {
+        balance += amount;
+    }
+
+    public synchronized void withdraw(int amount) {
+        if (balance >= amount) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds for withdrawal.");
+        }
+    }
+
+    public int getBalance() {
+        return balance;
+    }
+}
+
+<img src="ss/7.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>6. Write a Java program to implement a concurrent web crawler that crawls multiple websites simultaneously using threads.</span>
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+class main {
+    public static void main(String[] args) throws InterruptedException {
+        List&lt;String&gt; urls = Arrays.asList(
+            "https://www.example.com",
+            "https://www.wikipedia.org",
+            "https://www.github.com"
+        );
+
+        List&lt;Thread&gt; threads = new ArrayList&lt;&gt;();
+
+        for (String url : urls) {
+            Thread crawlerThread = new Thread() {
+                public void run() {
+                    crawlWebsite(url);
+                }
+            };
+            threads.add(crawlerThread);
+            crawlerThread.start();
+        }
+
+        for (Thread t : threads) {
+            t.join();
+        }
+    }
+
+    public static void crawlWebsite(String urlString) {
+        try {
+            URL url = new URL(urlString);
+            BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            String line;
+            System.out.println("Crawling: " + urlString);
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+            reader.close();
+        } catch (IOException e) {
+            System.out.println("Error crawling " + urlString + ": " + e.getMessage());
+        }
+    }
+}
+
+<img src="ss/6.png" style="height: 350px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

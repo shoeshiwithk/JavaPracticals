@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>5. Delete the row in the table in the database from Java API.</span>
+import java.sql.*;
+class jdbc5{
+public static void main(String s[]) throws java.lang.ClassNotFoundException,SQLException{
+Class.forName("com.mysql.jdbc.Driver");
+Connection c1=DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu","root","root");
+Statement st=c1.createStatement();
+System.out.println(st.executeUpdate("delete from student where rollno=3"));
+}}
+
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

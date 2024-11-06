@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>9. Get all characters from the file and display on the screen</span>
+import java.io.*;
+
+class main {
+    public static void main(String[] args) {
+        try {
+            FileReader fileReader = new FileReader("file.txt");
+            BufferedReader br = new BufferedReader(fileReader);
+            
+            int ch;
+            while ((ch = br.read()) != -1) {
+                System.out.print((char) ch);
+            }
+            
+            br.close();
+        } catch (IOException e) {
+            System.out.println("Error reading the file: " + e.getMessage());
+        }
+    }
+}
+
+<img src="ss/9.png" style="height: 250px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

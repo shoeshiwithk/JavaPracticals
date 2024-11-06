@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>1. Enter the character from user using InputStreamReader</span>
+import java.io.*;
+
+class main {
+    public static void main(String[] args) throws IOException {
+        InputStreamReader reader = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(reader);
+        System.out.print("Enter a character: ");
+        char ch = (char) br.read();
+        System.out.println("You entered: " + ch);
+        br.close();
+    }
+}
+
+<img src="ss/1.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

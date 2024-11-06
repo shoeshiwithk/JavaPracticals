@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>7. Create a Scrollable Readonly Resultset and ask the row number from the user and display that row on the screen.</span>
+import java.io.*;
+import java.sql.*;
+
+class jdbc7{
+public static void main (String args[]) throws ClassNotFoundException,java.sql.SQLException,java.io.IOException{
+Class.forName("com.mysql.jdbc.Driver");
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu","root","root");
+Statement st=con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+BufferedReader scan=new BufferedReader(new InputStreamReader(System.in)); 
+System.out.println("Enter row number for the data to display:");
+int row=Integer.parseInt(scan.readLine());
+ResultSet view=st.executeQuery("select * from student ");
+view.absolute(row);
+System.out.println(" Data is :");
+System.out.println(view.getString(1)+" "+view.getString(2));
+}}
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

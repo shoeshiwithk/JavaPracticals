@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>6. Select multiple rows from the database table in Java API and show the result on the screen.</span>
+import java.sql.*;
+class jdbc6{
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu", "root", "root");
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM student");
+        while (rs.next()) {
+            int rollno = rs.getInt("rollno");
+            String name = rs.getString("name");
+            System.out.println("Roll No: " + rollno + ", Name: " + name);
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+    }
+}
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

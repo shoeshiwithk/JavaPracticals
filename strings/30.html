@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>30. Program to find the number of the words in the given text file</span>
+import java.io.*;
+
+class main {
+    public static void main(String[] args) {
+        String fileName = "text.txt"; 
+        int wordCount = 0;
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] words = line.split("\\s+");
+                wordCount += words.length;
+            }
+            
+            System.out.println("Total number of words in the file: " + wordCount);
+        } catch (IOException e) {
+            System.out.println("Error reading the file: " + e.getMessage());
+        }
+    }
+}
+
+<img src="ss/30.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>21. Program to find all the permutations of a string</span>
+class main {
+    public static void main(String[] args) {
+        String str = "abc";
+        printPermutations(str, 0, str.length() - 1);
+    }
+
+    public static void printPermutations(String str, int left, int right) {
+        if (left == right) {
+            System.out.println(str);
+        } else {
+            for (int i = left; i &lt;= right; i++) {
+                str = swap(str, left, i);
+                printPermutations(str, left + 1, right);
+                str = swap(str, left, i); // backtrack
+            }
+        }
+    }
+
+    public static String swap(String str, int i, int j) {
+        char[] charArray = str.toCharArray();
+        char temp = charArray[i];
+        charArray[i] = charArray[j];
+        charArray[j] = temp;
+        return new String(charArray);
+    }
+}
+
+<img src="ss/21.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

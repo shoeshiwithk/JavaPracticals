@@ -1,0 +1,108 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+.banner{
+    width: 100%;
+    min-height: 100vh;
+    background-image: linear-gradient(rgb(0,0,0,0.75),rgb(0,0,0,0.75)),url(bg1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.banner ul li{
+    list-style: decimal;
+    display: inline-block;
+    margin: 10px 130px;
+    position: relative;
+}
+.banner ul li a{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+}
+.content{
+    width:100%;
+    position: absolute;
+    top: 30%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #e66464;
+}
+.banner h1{
+    font-size: 35px;
+    font-family: 'Courier New', Courier, monospace;
+    width:100%;
+    position: absolute;
+    top: 7%;
+    transform: translateY(-50%);
+    text-align: center;
+    color: #e66464;
+}
+.banner img{
+    height: 50px;
+    align-items: left;
+    text-align: left;
+    width: 50px;
+    margin: 10px 10px;
+    border-radius: 50%;
+    border: 10px #fff;
+}
+
+.practical{
+    display: flex;
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 20px;  /* Padding on all sides */
+    gap: 20px;
+}
+
+.written1, .written2{
+    width: 48%; /* Slightly less than 50% to prevent overflow */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.written1 li, .written2 li{
+    margin: 10px 0;
+    display: block;
+    background-color: #e66464;  /* Background color to make it look like a button */
+    color: #fff;  /* Text color inside the button */
+    padding: 12px 25px;  /* Padding to make it look more like a button */
+    border-radius: 5px;  /* Rounded corners for the button-like appearance */
+    text-align: center;  /* Centers the text inside the li */
+    width: 50%;  /* Makes the li elements take full width */
+    font-size: 16px;  /* Font size for the button text */
+    transition: background-color 0.3s, transform 0.3s;  /* Smooth transition for hover effects */
+    cursor: pointer;  /* Changes the cursor to a pointer when hovering over the li */
+}
+
+.written1 li a, .written2 li a{
+    text-decoration: none;  /* Removes the default underline from links */
+    color: #fff;  /* Ensures the text inside the li link is white */
+    text-transform: uppercase;  /* Makes the link text uppercase */
+    font-weight: bold;  /* Makes the text bold */
+}
+
+
+.written1 li:hover, .written2 li:hover{
+    background-color: #c25454;  /* Darkens the background color when the li is hovered */
+    transform: scale(1.02);  /* Slightly enlarges the li when hovered */
+}
+
+@media (max-width: 768px) {
+    .written1, .written2 {
+        width: 100%; /* On smaller screens, make both columns full width */
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

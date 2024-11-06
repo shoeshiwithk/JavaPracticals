@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>15. Program to count the total number of punctuation characters exists in a String</span>
+class main {
+    public static void main(String[] args) {
+        String str = "Hello, World! How's it going?";
+        int punctuationCount = 0;
+        
+        for (int i = 0; i &lt; str.length(); i++) {
+            if (isPunctuation(str.charAt(i))) {
+                punctuationCount++;
+            }
+        }
+        
+        System.out.println("Total number of punctuation characters: " + punctuationCount);
+    }
+    
+    public static boolean isPunctuation(char c) {
+        return (c == '!' || c == '"' || c == '#' || c == '$' || c == '%' || c == '&' || c == '\'' || c == '(' || c == ')'
+                || c == '*' || c == '+' || c == ',' || c == '-' || c == '.' || c == '/' || c == ':' || c == ';'
+                || c == '&lt;' || c == '=' || c == '>' || c == '?' || c == '@' || c == '[' || c == '\\' || c == ']'
+                || c == '^' || c == '_' || c == '`' || c == '{' || c == '|' || c == '}' || c == '~');
+    }
+}
+
+<img src="ss/15.png" style="height: 80px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

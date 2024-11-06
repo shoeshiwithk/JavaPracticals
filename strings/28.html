@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>28. Program to find the longest repeating sequence in a string</span>
+class main {
+    public static void main(String[] args) {
+        String str = "abcabcabcabc";
+        String longestRepeating = findLongestRepeatingSubstring(str);
+        System.out.println("Longest repeating sequence: " + longestRepeating);
+    }
+
+    public static String findLongestRepeatingSubstring(String str) {
+        int n = str.length();
+        String result = "";
+        
+        for (int i = 0; i &lt; n; i++) {
+            for (int j = i + 1; j &lt; n; j++) {
+                String substring = str.substring(i, j);
+                if (str.indexOf(substring, j) != -1 && substring.length() > result.length()) {
+                    result = substring;
+                }
+            }
+        }
+        return result;
+    }
+}
+
+<img src="ss/28.png" style="height: 90px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>19. Program to divide a string in 'N' equal parts.</span>
+class main {
+    public static void main(String[] args) {
+        String str = "abcdefghij";
+        int n = 5;
+        
+        if (str.length() % n == 0) {
+            int partLength = str.length() / n;
+            for (int i = 0; i &lt; n; i++) {
+                System.out.println(str.substring(i * partLength, (i + 1) * partLength));
+            }
+        } else {
+            System.out.println("Cannot divide the string into " + n + " equal parts");
+        }
+    }
+}
+
+<img src="ss/19.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

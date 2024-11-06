@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>29. Program to find the most repeated word in a text file</span>
+import java.io.*;
+import java.util.*;
+
+class main {
+    public static void main(String[] args) {
+        String fileName = "text.txt";
+        Map&lt;String, Integer&gt; wordCount = new HashMap&lt;&gt;();
+        
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] words = line.split("\\s+");
+                for (String word : words) {
+                    word = word.toLowerCase().replaceAll("[^a-zA-Z]", "");
+                    wordCount.put(word, wordCount.getOrDefault(word, 0) + 1);
+                }
+            }
+            
+            String mostRepeatedWord = null;
+            int maxCount = 0;
+            for (Map.Entry&lt;String, Integer&gt; entry : wordCount.entrySet()) {
+                if (entry.getValue() &gt; maxCount) {
+                    maxCount = entry.getValue();
+                    mostRepeatedWord = entry.getKey();
+                }
+            }
+            
+            System.out.println("Most repeated word: " + mostRepeatedWord + " with frequency: " + maxCount);
+        } catch (IOException e) {
+            System.out.println("Error reading the file: " + e.getMessage());
+        }
+    }
+}
+
+<img src="ss/29.png" style="height: 90px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

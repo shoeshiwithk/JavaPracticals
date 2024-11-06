@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>26. Program to find the frequency of characters</span>
+class main {
+    public static void main(String[] args) {
+        String str = "programming";
+        int[] freq = new int[256];
+        
+        for (int i = 0; i &lt; str.length(); i++) {
+            freq[str.charAt(i)]++;
+        }
+        
+        System.out.println("Character frequencies:");
+        for (int i = 0; i &lt; 256; i++) {
+            if (freq[i] &gt; 0) {
+                System.out.println((char) i + " : " + freq[i]);
+            }
+        }
+    }
+}
+
+<img src="ss/26.png" style="height: 200px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

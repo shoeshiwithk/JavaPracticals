@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>20. Program to find all subsets of a string</span>
+class main {
+    public static void main(String[] args) {
+        String str = "abc";
+        int n = str.length();
+        
+        for (int i = 0; i &lt; (1 &lt;&lt; n); i++) {
+            StringBuilder subset = new StringBuilder();
+            for (int j = 0; j &lt; n; j++) {
+                if ((i & (1 &lt;&lt; j)) &gt; 0) {
+                    subset.append(str.charAt(j));
+                }
+            }
+            System.out.println(subset);
+        }
+    }
+}
+
+<img src="ss/20.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

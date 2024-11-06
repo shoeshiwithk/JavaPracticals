@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>9. Program to Check Anagram</span>
+class main {
+    public static void main(String[] args) {
+        String str1 = "listen";
+        String str2 = "silent";
+        
+        char[] array1 = str1.toCharArray();
+        char[] array2 = str2.toCharArray();
+        
+        java.util.Arrays.sort(array1);
+        java.util.Arrays.sort(array2);
+        
+        if (java.util.Arrays.equals(array1, array2)) {
+            System.out.println("Anagram");
+        } else {
+            System.out.println("Not anagram");
+        }
+    }
+}
+
+<img src="ss/9.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

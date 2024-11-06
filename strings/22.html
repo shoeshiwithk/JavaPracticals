@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>22. Program to find maximum and minimum occurring character in a string</span>
+class main {
+    public static void main(String[] args) {
+        String str = "abracadabra";
+        int[] freq = new int[256];
+        
+        for (int i = 0; i &lt; str.length(); i++) {
+            freq[str.charAt(i)]++;
+        }
+        
+        char maxChar = ' ';
+        int maxCount = 0;
+        char minChar = ' ';
+        int minCount = Integer.MAX_VALUE;
+        
+        for (int i = 0; i &lt; 256; i++) {
+            if (freq[i] > maxCount) {
+                maxCount = freq[i];
+                maxChar = (char) i;
+            }
+            if (freq[i] > 0 && freq[i] &lt; minCount) {
+                minCount = freq[i];
+                minChar = (char) i;
+            }
+        }
+        
+        System.out.println("Maximum occurring character: " + maxChar + " with frequency: " + maxCount);
+        System.out.println("Minimum occurring character: " + minChar + " with frequency: " + minCount);
+    }
+}
+
+<img src="ss/22.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

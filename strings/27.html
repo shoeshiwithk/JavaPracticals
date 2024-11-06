@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>27. Program to find the largest and smallest word in a string</span>
+class main {
+    public static void main(String[] args) {
+        String str = "The quick brown fox jumps over the lazy dog";
+        String[] words = str.split("\\s+");
+        
+        String largest = words[0];
+        String smallest = words[0];
+        
+        for (String word : words) {
+            if (word.length() > largest.length()) {
+                largest = word;
+            }
+            if (word.length() &lt; smallest.length()) {
+                smallest = word;
+            }
+        }
+        
+        System.out.println("Largest word: " + largest);
+        System.out.println("Smallest word: " + smallest);
+    }
+}
+
+<img src="ss/27.png" style="height: 90px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

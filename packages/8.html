@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>8. Create a Java program to create a package with public class and protected members to be accessed in another class.</span>
+<h5>Employee file</h5>package company;
+
+public class Employee {
+    protected String name;
+    protected int empId;
+    protected double salary;
+    public Employee(String name, int empId, double salary) {
+        this.name = name;
+        this.empId = empId;
+        this.salary = salary;
+    }
+    protected void displayDetails() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee ID: " + empId);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+<h5>Manager file</h5>package company;
+
+public class Manager extends Employee {
+    public Manager(String name, int empId, double salary) {
+        super(name, empId, salary);  // Call the parent constructor
+    }
+    public void showManagerDetails() {
+        // Accessing protected method and members from Employee class
+        displayDetails();  // Calling the inherited protected method
+    }
+}
+
+<h5>Main file</h5>package company;
+
+public class Manager extends Employee {
+    public Manager(String name, int empId, double salary) {
+        super(name, empId, salary);  // Call the parent constructor
+    }
+    public void showManagerDetails() {
+        // Accessing protected method and members from Employee class
+        displayDetails();  // Calling the inherited protected method
+    }
+}
+
+<img src="ss/8.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

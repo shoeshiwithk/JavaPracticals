@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>13. Write a Java program to create a class called "Inventory" with a collection of products and methods to add and remove products, and to check for low inventory.</span>
+import java.util.*;
+
+class main {
+    public static void main(String[] args) {
+        Inventory inventory = new Inventory();
+
+        Product product1 = new Product("Laptop", 5);
+        Product product2 = new Product("Smartphone", 10);
+        Product product3 = new Product("Headphones", 2);
+
+        inventory.addProduct(product1);
+        inventory.addProduct(product2);
+        inventory.addProduct(product3);
+
+        System.out.println("Inventory:");
+        inventory.displayProducts();
+
+        inventory.removeProduct(product2);
+
+        System.out.println("\nAfter removing Smartphone:");
+        inventory.displayProducts();
+
+        System.out.println("\nLow inventory products:");
+        inventory.checkLowInventory(5);
+    }
+}
+
+class Inventory {
+    private List&lt;Product&gt; products;
+
+    public Inventory() {
+        products = new ArrayList&lt;&gt;();
+    }
+
+    public void addProduct(Product product) {
+        products.add(product);
+    }
+
+    public void removeProduct(Product product) {
+        products.remove(product);
+    }
+
+    public void displayProducts() {
+        if (products.isEmpty()) {
+            System.out.println("No products in inventory.");
+        } else {
+            for (Product product : products) {
+                System.out.println(product);
+            }
+        }
+    }
+
+    public void checkLowInventory(int threshold) {
+        for (Product product : products) {
+            if (product.getQuantity() &lt;= threshold) {
+                System.out.println(product.getName() + " has low inventory: " + product.getQuantity());
+            }
+        }
+    }
+}
+
+class Product {
+    private String name;
+    private int quantity;
+
+    public Product(String name, int quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    @Override
+    public String toString() {
+        return "Product: " + name + ", Quantity: " + quantity;
+    }
+}
+
+<img src="ss/13.png" style="height: 220px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>10. Create a Java program to create a package with public class and public members to be accessed in another class.</span>
+<h5>Employee class</h5>package company;
+
+public class Employee {
+    public String name;
+    public int empId;
+    public double salary;
+    public Employee(String name, int empId, double salary) {
+        this.name = name;
+        this.empId = empId;
+        this.salary = salary;
+    }
+    public void displayDetails() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee ID: " + empId);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+<h5>Main class</h5>import company.Employee;
+
+class main {
+    public static void main(String[] args) {
+        Employee emp = new Employee("John Doe", 101, 50000);
+        System.out.println("Employee Name: " + emp.name);
+        System.out.println("Employee ID: " + emp.empId);
+        System.out.println("Employee Salary: " + emp.salary);
+        emp.displayDetails();
+    }
+}
+
+<img src="ss/10.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

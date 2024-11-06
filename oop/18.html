@@ -1,0 +1,103 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>18. Write a Java program to create a class called "Restaurant" with attributes for menu items, prices, and ratings, and methods to add and remove items, and to calculate average rating.</span>
+import java.util.*;
+
+class main {
+    public static void main(String[] args) {
+        Restaurant restaurant = new Restaurant();
+
+        restaurant.addMenuItem("Pizza", 12.99, 4.5);
+        restaurant.addMenuItem("Burger", 8.99, 4.0);
+        restaurant.addMenuItem("Pasta", 10.99, 4.7);
+
+        System.out.println("Restaurant Menu:");
+        restaurant.displayMenu();
+
+        System.out.println("\nAverage Rating: " + restaurant.calculateAverageRating());
+
+        restaurant.removeMenuItem("Burger");
+
+        System.out.println("\nAfter removing Burger:");
+        restaurant.displayMenu();
+        System.out.println("Average Rating: " + restaurant.calculateAverageRating());
+    }
+}
+
+class Restaurant {
+    private List&lt;MenuItem&gt; menuItems;
+
+    public Restaurant() {
+        menuItems = new ArrayList&lt;&gt;();
+    }
+
+    public void addMenuItem(String name, double price, double rating) {
+        menuItems.add(new MenuItem(name, price, rating));
+    }
+
+    public void removeMenuItem(String name) {
+        menuItems.removeIf(item -&gt; item.getName().equals(name));
+    }
+
+    public void displayMenu() {
+        if (menuItems.isEmpty()) {
+            System.out.println("No menu items available.");
+        } else {
+            for (MenuItem item : menuItems) {
+                System.out.println(item);
+            }
+        }
+    }
+
+    public double calculateAverageRating() {
+        if (menuItems.isEmpty()) {
+            return 0.0;
+        }
+
+        double totalRating = 0.0;
+        for (MenuItem item : menuItems) {
+            totalRating += item.getRating();
+        }
+
+        return totalRating / menuItems.size();
+    }
+}
+
+class MenuItem {
+    private String name;
+    private double price;
+    private double rating;
+
+    public MenuItem(String name, double price, double rating) {
+        this.name = name;
+        this.price = price;
+        this.rating = rating;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getRating() {
+        return rating;
+    }
+
+    @Override
+    public String toString() {
+        return name + " - $" + price + " - Rating: " + rating;
+    }
+}
+
+<img src="ss/18.png" style="height: 220px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

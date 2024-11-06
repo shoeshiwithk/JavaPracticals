@@ -1,0 +1,162 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>14. Write a Java program to create a class called "School" with attributes for students, teachers, and classes, and methods to add and remove students and teachers, and to create classes.</span>
+import java.util.*;
+
+class main {
+    public static void main(String[] args) {
+        School school = new School();
+
+        Student student1 = new Student("Alice");
+        Student student2 = new Student("Bob");
+        Teacher teacher1 = new Teacher("Mr. Smith");
+        Teacher teacher2 = new Teacher("Ms. Johnson");
+
+        school.addStudent(student1);
+        school.addStudent(student2);
+        school.addTeacher(teacher1);
+        school.addTeacher(teacher2);
+
+        Class class1 = new Class("Mathematics", teacher1);
+        Class class2 = new Class("Science", teacher2);
+
+        school.createClass(class1);
+        school.createClass(class2);
+
+        System.out.println("School Details:");
+        school.displayStudents();
+        school.displayTeachers();
+        school.displayClasses();
+
+        school.removeStudent(student2);
+        school.removeTeacher(teacher1);
+
+        System.out.println("\nAfter removing Bob and Mr. Smith:");
+        school.displayStudents();
+        school.displayTeachers();
+    }
+}
+
+class School {
+    private List&lt;Student&gt; students;
+    private List&lt;Teacher&gt; teachers;
+    private List&lt;Class&gt; classes;
+
+    public School() {
+        students = new ArrayList&lt;&gt;();
+        teachers = new ArrayList&lt;&gt;();
+        classes = new ArrayList&lt;&gt;();
+    }
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
+    public void removeStudent(Student student) {
+        students.remove(student);
+    }
+
+    public void addTeacher(Teacher teacher) {
+        teachers.add(teacher);
+    }
+
+    public void removeTeacher(Teacher teacher) {
+        teachers.remove(teacher);
+    }
+
+    public void createClass(Class schoolClass) {
+        classes.add(schoolClass);
+    }
+
+    public void displayStudents() {
+        System.out.println("Students:");
+        for (Student student : students) {
+            System.out.println(student);
+        }
+    }
+
+    public void displayTeachers() {
+        System.out.println("Teachers:");
+        for (Teacher teacher : teachers) {
+            System.out.println(teacher);
+        }
+    }
+
+    public void displayClasses() {
+        System.out.println("Classes:");
+        for (Class schoolClass : classes) {
+            System.out.println(schoolClass);
+        }
+    }
+}
+
+class Student {
+    private String name;
+
+    public Student(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Student: " + name;
+    }
+}
+
+class Teacher {
+    private String name;
+
+    public Teacher(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "Teacher: " + name;
+    }
+}
+
+class Class {
+    private String className;
+    private Teacher teacher;
+
+    public Class(String className, Teacher teacher) {
+        this.className = className;
+        this.teacher = teacher;
+    }
+
+    public String getClassName() {
+        return className;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    @Override
+    public String toString() {
+        return "Class: " + className + ", Teacher: " + teacher.getName();
+    }
+}
+
+<img src="ss/14.png" style="height: 220px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

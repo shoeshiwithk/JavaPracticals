@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>12. Write a Java program to create a class called "Airplane" with a flight number, destination, and departure time attributes, and methods to check flight status and delay.</span>
+import java.time.LocalTime;
+
+class main {
+    public static void main(String[] args) {
+        Airplane airplane = new Airplane("AI202", "New York", LocalTime.of(15, 30));
+
+        System.out.println("Flight Information:");
+        System.out.println(airplane);
+
+        System.out.println("\nFlight Status: " + airplane.checkFlightStatus());
+
+        airplane.delayFlight(30);
+
+        System.out.println("\nAfter delay:");
+        System.out.println("New Departure Time: " + airplane.getDepartureTime());
+        System.out.println("Flight Status: " + airplane.checkFlightStatus());
+    }
+}
+
+class Airplane {
+    private String flightNumber;
+    private String destination;
+    private LocalTime departureTime;
+
+    public Airplane(String flightNumber, String destination, LocalTime departureTime) {
+        this.flightNumber = flightNumber;
+        this.destination = destination;
+        this.departureTime = departureTime;
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public LocalTime getDepartureTime() {
+        return departureTime;
+    }
+
+    public void delayFlight(int minutes) {
+        departureTime = departureTime.plusMinutes(minutes);
+    }
+
+    public String checkFlightStatus() {
+        LocalTime currentTime = LocalTime.now();
+        if (currentTime.isBefore(departureTime)) {
+            return "On time";
+        } else if (currentTime.equals(departureTime)) {
+            return "Departing now";
+        } else {
+            return "Flight has already departed";
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Flight Number: " + flightNumber + ", Destination: " + destination + ", Departure Time: " + departureTime;
+    }
+}
+
+<img src="ss/12.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

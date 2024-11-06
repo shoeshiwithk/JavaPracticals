@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>5. Write a Java program to create a class called "Book" with attributes for title, author, and ISBN, and methods to add and remove books from a collection.</span>
+import java.util.*;
+
+class main {
+    public static void main(String[] args) {
+        BookCollection collection = new BookCollection();
+
+        Book book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", "9780743273565");
+        Book book2 = new Book("1984", "George Orwell", "9780451524935");
+        Book book3 = new Book("To Kill a Mockingbird", "Harper Lee", "9780061120084");
+
+        collection.addBook(book1);
+        collection.addBook(book2);
+        collection.addBook(book3);
+
+        System.out.println("Books in the collection:");
+        collection.displayBooks();
+
+        collection.removeBook(book2);
+
+        System.out.println("\nAfter removing a book:");
+        collection.displayBooks();
+    }
+}
+
+class Book {
+    private String title;
+    private String author;
+    private String ISBN;
+
+    public Book(String title, String author, String ISBN) {
+        this.title = title;
+        this.author = author;
+        this.ISBN = ISBN;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    @Override
+    public String toString() {
+        return "Title: " + title + ", Author: " + author + ", ISBN: " + ISBN;
+    }
+}
+
+class BookCollection {
+    private List&lt;Book&gt; books;
+
+    public BookCollection() {
+        books = new ArrayList&lt;&gt;();
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public void removeBook(Book book) {
+        books.remove(book);
+    }
+
+    public void displayBooks() {
+        if (books.isEmpty()) {
+            System.out.println("No books in the collection.");
+        } else {
+            for (Book book : books) {
+                System.out.println(book);
+            }
+        }
+    }
+}
+
+<img src="ss/5.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

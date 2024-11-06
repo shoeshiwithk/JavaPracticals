@@ -1,0 +1,101 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>19. Write a Java program to create a class with methods to search for flights and hotels, and to book and cancel reservations.</span>
+import java.util.*;
+
+class main {
+    public static void main(String[] args) {
+        TravelAgency travelAgency = new TravelAgency();
+
+        travelAgency.searchFlights("New York", "Los Angeles");
+        travelAgency.searchHotels("Los Angeles");
+
+        travelAgency.bookFlight("Flight 101");
+        travelAgency.bookHotel("Hotel California");
+
+        travelAgency.cancelFlight("Flight 101");
+        travelAgency.cancelHotel("Hotel California");
+    }
+}
+
+class TravelAgency {
+    private List&lt;String&gt; availableFlights;
+    private List&lt;String&gt; availableHotels;
+    private List&lt;String&gt; bookedFlights;
+    private List&lt;String&gt; bookedHotels;
+
+    public TravelAgency() {
+        availableFlights = new ArrayList&lt;&gt;(Arrays.asList("Flight 101", "Flight 102", "Flight 103"));
+        availableHotels = new ArrayList&lt;&gt;(Arrays.asList("Hotel California", "Hotel Sunset", "Hotel Grand"));
+        bookedFlights = new ArrayList&lt;&gt;();
+        bookedHotels = new ArrayList&lt;&gt;();
+    }
+
+    public void searchFlights(String from, String to) {
+        System.out.println("Searching for flights from " + from + " to " + to + "...");
+        for (String flight : availableFlights) {
+            System.out.println("Available flight: " + flight);
+        }
+    }
+
+    public void searchHotels(String location) {
+        System.out.println("Searching for hotels in " + location + "...");
+        for (String hotel : availableHotels) {
+            System.out.println("Available hotel: " + hotel);
+        }
+    }
+
+    public void bookFlight(String flight) {
+        if (availableFlights.contains(flight)) {
+            bookedFlights.add(flight);
+            availableFlights.remove(flight);
+            System.out.println("Flight " + flight + " booked successfully.");
+        } else {
+            System.out.println("Flight " + flight + " is not available.");
+        }
+    }
+
+    public void cancelFlight(String flight) {
+        if (bookedFlights.contains(flight)) {
+            bookedFlights.remove(flight);
+            availableFlights.add(flight);
+            System.out.println("Flight " + flight + " cancelled successfully.");
+        } else {
+            System.out.println("No booking found for flight " + flight);
+        }
+    }
+
+    public void bookHotel(String hotel) {
+        if (availableHotels.contains(hotel)) {
+            bookedHotels.add(hotel);
+            availableHotels.remove(hotel);
+            System.out.println("Hotel " + hotel + " booked successfully.");
+        } else {
+            System.out.println("Hotel " + hotel + " is not available.");
+        }
+    }
+
+    public void cancelHotel(String hotel) {
+        if (bookedHotels.contains(hotel)) {
+            bookedHotels.remove(hotel);
+            availableHotels.add(hotel);
+            System.out.println("Hotel " + hotel + " cancelled successfully.");
+        } else {
+            System.out.println("No booking found for hotel " + hotel);
+        }
+    }
+}
+
+<img src="ss/19.png" style="height: 220px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

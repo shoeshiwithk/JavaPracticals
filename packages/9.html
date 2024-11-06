@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>9. Create a Java program to create a nested package i.e. c4.sample with public class and protected members to be accessed in another class.</span>
+<h5>Employee class</h5>package c4.sample;
+
+public class Employee {
+    protected String name;
+    protected int empId;
+    protected double salary;
+    public Employee(String name, int empId, double salary) {
+        this.name = name;
+        this.empId = empId;
+        this.salary = salary;
+    }
+    protected void displayDetails() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee ID: " + empId);
+        System.out.println("Salary: " + salary);
+    }
+}
+
+<h5>Manager file</h5>package c4.sample;
+
+public class Manager extends Employee {
+    public Manager(String name, int empId, double salary) {
+        super(name, empId, salary); 
+    }
+    public void showManagerDetails() {
+        displayDetails();  
+    }
+}
+
+<h5>Main file</h5>import c4.sample.Manager;
+
+class main {
+    public static void main(String[] args) {
+        Manager manager = new Manager("Alice Smith", 102, 70000);
+        manager.showManagerDetails();
+    }
+}
+
+<img src="ss/9.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

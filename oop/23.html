@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>23. Create a class entering the rollno, name and class of the student from user but rollno should be automatically generated as we enter the information of 10 students</span>
+import java.util.*;
+
+class Student {
+    int rollno;
+    String name;
+    String studentClass;
+
+    public Student(int rollno, String name, String studentClass) {
+        this.rollno = rollno;
+        this.name = name;
+        this.studentClass = studentClass;
+    }
+
+    public void displayInfo() {
+        System.out.println("Roll No: " + rollno);
+        System.out.println("Name: " + name);
+        System.out.println("Class: " + studentClass);
+        System.out.println();
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        List&lt;Student&gt; students = new ArrayList&lt;&gt;();
+        int rollno = 1; // Starting roll number
+
+        for (int i = 0; i &lt; 10; i++) {
+            System.out.println("Enter information for student " + (i + 1));
+
+            System.out.print("Enter name: ");
+            String name = scanner.nextLine();
+
+            System.out.print("Enter class: ");
+            String studentClass = scanner.nextLine();
+
+            students.add(new Student(rollno, name, studentClass));
+            rollno++;  // Increment roll number for the next student
+        }
+
+        System.out.println("\nStudent Information:");
+        for (Student student : students) {
+            student.displayInfo();
+        }
+
+        scanner.close();
+    }
+}
+
+<img src="ss/23.png" style="height:350px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>17. Write a Java program to create a class called "Movie" with attributes for title, director, actors, and reviews, and methods for adding and retrieving reviews.</span>
+import java.util.*;
+
+class main {
+    public static void main(String[] args) {
+        Movie movie = new Movie("Inception", "Christopher Nolan", new String[]{"Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"});
+
+        movie.addReview("Amazing movie with a complex plot!");
+        movie.addReview("Mind-bending and visually stunning.");
+        movie.addReview("A masterpiece of modern cinema.");
+
+        System.out.println("Movie Title: " + movie.getTitle());
+        System.out.println("Director: " + movie.getDirector());
+        System.out.println("Actors: " + Arrays.toString(movie.getActors()));
+
+        System.out.println("\nReviews:");
+        movie.displayReviews();
+    }
+}
+
+class Movie {
+    private String title;
+    private String director;
+    private String[] actors;
+    private List&lt;String&gt; reviews;
+
+    public Movie(String title, String director, String[] actors) {
+        this.title = title;
+        this.director = director;
+        this.actors = actors;
+        this.reviews = new ArrayList&lt;&gt;();
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public String[] getActors() {
+        return actors;
+    }
+
+    public void addReview(String review) {
+        reviews.add(review);
+    }
+
+    public void displayReviews() {
+        if (reviews.isEmpty()) {
+            System.out.println("No reviews available.");
+        } else {
+            for (String review : reviews) {
+                System.out.println(review);
+            }
+        }
+    }
+}
+
+<img src="ss/17.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

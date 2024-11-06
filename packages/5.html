@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>5. Create a Java program to create a package with multiple default classes.</span>
+<h5>Class A file</h5>package mypackage;
+
+public class ClassA {
+    public void displayA() {
+        System.out.println("This is Class A.");
+    }
+}
+
+<h5>Class B file</h5>package mypackage;
+
+public class ClassB {
+    public void displayB() {
+        System.out.println("This is Class B.");
+    }
+}
+
+<h5>Main function</h5>import mypackage.ClassA;
+import mypackage.ClassB;
+
+public class Main {
+    public static void main(String[] args) {
+        ClassA objA = new ClassA();
+        objA.displayA();
+        
+        ClassB objB = new ClassB();
+        objB.displayB();
+    }
+}
+
+<img src="ss/5.png" style="height: 90px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

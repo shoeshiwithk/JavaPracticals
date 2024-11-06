@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>6. Create a Java program to create a package with 4 public classes, create the object in another file and call the function created in those classes.</span>
+<h5>Class A file</h5>package mypackage;
+
+public class ClassA {
+    public void displayA() {
+        System.out.println("This is Class A.");
+    }
+}
+
+<h5>Class B file</h5>package mypackage;
+
+public class ClassB {
+    public void displayB() {
+        System.out.println("This is Class B.");
+    }
+}
+
+<h5>Class C file</h5>package mypackage;
+
+public class ClassC {
+    public void displayC() {
+        System.out.println("This is Class C");
+    }
+}
+
+<h5>Class D file</h5>package mypackage;
+
+public class ClassD {
+    public void displayD() {
+        System.out.println("This is Class D");
+    }
+}
+
+<h5>Main file</h5>import mypackage.ClassA;
+import mypackage.ClassB;
+import mypackage.ClassC;
+import mypackage.ClassD;
+
+class TestClasses {
+    public static void main(String[] args) {
+        ClassA objA = new ClassA();
+        ClassB objB = new ClassB();
+        ClassC objC = new ClassC();
+        ClassD objD = new ClassD();
+        
+        objA.displayA();
+        objB.displayB();
+        objC.displayC();
+        objD.displayD();
+    }
+}
+<img src="ss/6.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

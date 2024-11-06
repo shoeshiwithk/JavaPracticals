@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>7. Write a Java program to create a class called "Bank" with a collection of accounts and methods to add and remove accounts, and to deposit and withdraw money. Also define a class called "Account" to maintain account details of a particular customer.</span>
+import java.util.*;
+
+class main {
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+
+        Account account1 = new Account("Alice", "12345", 5000);
+        Account account2 = new Account("Bob", "67890", 10000);
+
+        bank.addAccount(account1);
+        bank.addAccount(account2);
+
+        System.out.println("Before transactions:");
+        bank.displayAccounts();
+
+        account1.deposit(2000);
+        account2.withdraw(3000);
+
+        System.out.println("\nAfter transactions:");
+        bank.displayAccounts();
+
+        bank.removeAccount(account1);
+        System.out.println("\nAfter removing Alice's account:");
+        bank.displayAccounts();
+    }
+}
+
+class Bank {
+    private List&lt;Account&gt; accounts;
+
+    public Bank() {
+        accounts = new ArrayList&lt;&gt;();
+    }
+
+    public void addAccount(Account account) {
+        accounts.add(account);
+    }
+
+    public void removeAccount(Account account) {
+        accounts.remove(account);
+    }
+
+    public void displayAccounts() {
+        for (Account account : accounts) {
+            System.out.println(account);
+        }
+    }
+}
+
+class Account {
+    private String accountHolder;
+    private String accountNumber;
+    private double balance;
+
+    public Account(String accountHolder, String accountNumber, double balance) {
+        this.accountHolder = accountHolder;
+        this.accountNumber = accountNumber;
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount &lt;= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient funds for withdrawal.");
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Account Holder: " + accountHolder + ", Account Number: " + accountNumber + ", Balance: Rs." + balance;
+    }
+}
+
+<img src="ss/7.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

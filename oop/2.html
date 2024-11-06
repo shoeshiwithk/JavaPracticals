@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>2. Write a Java program to create a class called "Dog" with a name and breed attribute. Create two instances of the "Dog" class, set their attributes using the constructor and modify the attributes using the setter methods and print the updated values.</span>
+class main {
+    public static void main(String[] args) {
+        Dog dog1 = new Dog("Max", "Bulldog");
+        Dog dog2 = new Dog("Bella", "Labrador");
+
+        System.out.println("Before update:");
+        System.out.println("Dog 1: Name: " + dog1.getName() + ", Breed: " + dog1.getBreed());
+        System.out.println("Dog 2: Name: " + dog2.getName() + ", Breed: " + dog2.getBreed());
+
+        dog1.setName("Rocky");
+        dog1.setBreed("Boxer");
+
+        dog2.setName("Luna");
+        dog2.setBreed("Golden Retriever");
+
+        System.out.println("\nAfter update:");
+        System.out.println("Dog 1: Name: " + dog1.getName() + ", Breed: " + dog1.getBreed());
+        System.out.println("Dog 2: Name: " + dog2.getName() + ", Breed: " + dog2.getBreed());
+    }
+}
+
+class Dog {
+    private String name;
+    private String breed;
+
+    public Dog(String name, String breed) {
+        this.name = name;
+        this.breed = breed;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+}
+
+<img src="ss/2.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

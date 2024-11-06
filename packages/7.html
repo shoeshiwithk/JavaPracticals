@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>7. Write a Java program to perform employee payroll processing using packages. In the java file, Emp.java creates a package employee and creates a class Emp. Declare the variables name,empid, category, bpay, hra, da, npay, pf, grosspay, incometax, and allowance. Calculate the values in methods. Create another java file Emppay.java. Create an object e to call the methods to perform and print values.</span>
+
+<h5>Emp package</h5>package employee;
+
+public class Emp {
+    String name;
+    int empid;
+    String category;
+    double bpay;      
+    double hra;       
+    double da;        
+    double npay;      
+    double pf;        
+    double grosspay;  
+    double incometax; 
+    double allowance; 
+    public Emp(String name, int empid, String category, double bpay) {
+        this.name = name;
+        this.empid = empid;
+        this.category = category;
+        this.bpay = bpay;
+    }
+    public void calculateGrossPay() {
+        hra = 0.2 * bpay;  
+        da = 0.1 * bpay;   
+        allowance = 0.05 * bpay; 
+        grosspay = bpay + hra + da + allowance;
+    }
+    public void calculatePF() {
+        pf = 0.12 * bpay;  
+    }
+    public void calculateIncomeTax() {
+        if (bpay &lt;= 5000) {
+            incometax = 0;
+        } else if (bpay &lt;= 10000) {
+            incometax = 0.05 * bpay;  
+        } else {
+            incometax = 0.1 * bpay;   
+        }
+    }
+    public void calculateNetPay() {
+        npay = grosspay - pf - incometax;  
+    }
+    public void printPayrollDetails() {
+        System.out.println("Employee Payroll Details:");
+        System.out.println("Name: " + name);
+        System.out.println("Employee ID: " + empid);
+        System.out.println("Category: " + category);
+        System.out.println("Basic Pay: " + bpay);
+        System.out.println("HRA: " + hra);
+        System.out.println("DA: " + da);
+        System.out.println("Allowance: " + allowance);
+        System.out.println("Gross Pay: " + grosspay);
+        System.out.println("Provident Fund: " + pf);
+        System.out.println("Income Tax: " + incometax);
+        System.out.println("Net Pay: " + npay);
+    }
+}
+
+<h5>Main file</h5>import employee.Emp;
+
+class main {
+    public static void main(String[] args) {
+        Emp e = new Emp("John Doe", 101, "Manager", 12000);
+        
+        e.calculateGrossPay();
+        e.calculatePF();
+        e.calculateIncomeTax();
+        e.calculateNetPay();
+        
+        e.printPayrollDetails();
+    }
+}
+
+<img src="ss/7.png" style="height: 250px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

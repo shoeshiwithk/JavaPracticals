@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>24. Create a class showing the area of circle and rectangle by method overloading.</span>
+class Shape {
+
+    // Method to calculate area of circle (overloaded version)
+    public double calculateArea(double radius) {
+        return Math.PI * radius * radius;
+    }
+
+    // Method to calculate area of rectangle (overloaded version)
+    public double calculateArea(double length, double width) {
+        return length * width;
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Shape shape = new Shape();
+
+        // Calculate area of circle
+        double circleArea = shape.calculateArea(5.0);
+        System.out.println("Area of Circle: " + circleArea);
+
+        // Calculate area of rectangle
+        double rectangleArea = shape.calculateArea(4.0, 6.0);
+        System.out.println("Area of Rectangle: " + rectangleArea);
+    }
+}
+
+<img src="ss/24.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

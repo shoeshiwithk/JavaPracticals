@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>12. Create a program, showing an example of super function</span>
+class Animal {
+    public void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    public void sound() {
+        super.sound();
+        System.out.println("Dog barks");
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Dog dog = new Dog();
+        dog.sound();
+    }
+}
+
+<img src="ss/12.png" style="height: 70px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

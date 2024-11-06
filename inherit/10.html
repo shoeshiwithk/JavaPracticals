@@ -1,0 +1,134 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>10. Write a Java program that creates a class hierarchy for employees of a company. The base class should be Employee, with subclasses Manager, Developer, and Programmer. Each subclass should have properties such as name, address, salary, and job title. Implement methods for calculating bonuses, generating performance reports, and managing projects.</span>
+class Employee {
+    String name;
+    String address;
+    double salary;
+    String jobTitle;
+
+    public Employee(String name, String address, double salary, String jobTitle) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.jobTitle = jobTitle;
+    }
+
+    public double calculateBonus() {
+        return salary * 0.05;  // Default bonus is 5% of salary
+    }
+
+    public void generatePerformanceReport() {
+        System.out.println(name + "'s performance report: Satisfactory performance.");
+    }
+
+    public void manageProject() {
+        System.out.println(name + " is managing the project.");
+    }
+
+    @Override
+    public String toString() {
+        return name + " - " + jobTitle + " (Salary: " + salary + ")";
+    }
+}
+
+class Manager extends Employee {
+    public Manager(String name, String address, double salary) {
+        super(name, address, salary, "Manager");
+    }
+
+    @Override
+    public double calculateBonus() {
+        return salary * 0.10;  // Manager gets a 10% bonus
+    }
+
+    @Override
+    public void generatePerformanceReport() {
+        System.out.println(name + "'s performance report: Excellent leadership and decision-making.");
+    }
+
+    @Override
+    public void manageProject() {
+        System.out.println(name + " is managing the project with overall responsibility.");
+    }
+}
+
+class Developer extends Employee {
+    public Developer(String name, String address, double salary) {
+        super(name, address, salary, "Developer");
+    }
+
+    @Override
+    public double calculateBonus() {
+        return salary * 0.08;  // Developer gets an 8% bonus
+    }
+
+    @Override
+    public void generatePerformanceReport() {
+        System.out.println(name + "'s performance report: Consistently writes clean and efficient code.");
+    }
+
+    @Override
+    public void manageProject() {
+        System.out.println(name + " is responsible for coding and development in the project.");
+    }
+}
+
+class Programmer extends Developer {
+    public Programmer(String name, String address, double salary) {
+        super(name, address, salary);
+        this.jobTitle = "Programmer";
+    }
+
+    @Override
+    public double calculateBonus() {
+        return salary * 0.07;  // Programmer gets a 7% bonus
+    }
+
+    @Override
+    public void generatePerformanceReport() {
+        System.out.println(name + "'s performance report: Strong problem-solving skills and ability to deliver.");
+    }
+
+    @Override
+    public void manageProject() {
+        System.out.println(name + " is focused on programming tasks in the project.");
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Employee manager = new Manager("Alice", "123 Main St", 80000);
+        Employee developer = new Developer("Bob", "456 Oak St", 60000);
+        Employee programmer = new Programmer("Charlie", "789 Pine St", 50000);
+
+        System.out.println(manager);
+        System.out.println("Bonus: " + manager.calculateBonus());
+        manager.generatePerformanceReport();
+        manager.manageProject();
+        
+        System.out.println("\n" + developer);
+        System.out.println("Bonus: " + developer.calculateBonus());
+        developer.generatePerformanceReport();
+        developer.manageProject();
+        
+        System.out.println("\n" + programmer);
+        System.out.println("Bonus: " + programmer.calculateBonus());
+        programmer.generatePerformanceReport();
+        programmer.manageProject();
+    }
+}
+
+<img src="ss/10.png" style="height: 250px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

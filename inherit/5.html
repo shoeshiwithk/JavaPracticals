@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>5. Write a Java program to create a class known as "BankAccount" with methods called deposit() and withdraw(). Create a subclass called SavingsAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred.</span>
+class BankAccount {
+    double balance;
+
+    public BankAccount() {
+        balance = 0.0;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount);
+    }
+
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount);
+        } else {
+            System.out.println("Insufficient funds");
+        }
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+}
+
+class SavingsAccount extends BankAccount {
+
+    @Override
+    public void withdraw(double amount) {
+        if (balance - amount >= 100) {
+            balance -= amount;
+            System.out.println("Withdrew: " + amount);
+        } else {
+            System.out.println("Withdrawal denied: Balance cannot go below 100");
+        }
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        BankAccount bankAccount = new BankAccount();
+        bankAccount.deposit(500);
+        bankAccount.withdraw(200);
+        System.out.println("Current balance: " + bankAccount.getBalance());
+
+        SavingsAccount savingsAccount = new SavingsAccount();
+        savingsAccount.deposit(500);
+        savingsAccount.withdraw(200);
+        System.out.println("Current balance: " + savingsAccount.getBalance());
+        savingsAccount.withdraw(250);
+        System.out.println("Current balance: " + savingsAccount.getBalance());
+    }
+}
+
+<img src="ss/5.png" style="height: 200px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

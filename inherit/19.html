@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>19. Write a Java program to create an abstract class Employee with abstract methods calculateSalary() and displayInfo(). Create subclasses Manager and Programmer that extend the Employee class and implement the respective methods to calculate salary and display information for each role.</span>
+abstract class Employee {
+    String name;
+    int id;
+
+    public Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
+    }
+
+    public abstract double calculateSalary();
+    public abstract void displayInfo();
+}
+
+class Manager extends Employee {
+    double baseSalary;
+    double bonus;
+
+    public Manager(String name, int id, double baseSalary, double bonus) {
+        super(name, id);
+        this.baseSalary = baseSalary;
+        this.bonus = bonus;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return baseSalary + bonus;
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Manager Name: " + name);
+        System.out.println("Manager ID: " + id);
+        System.out.println("Manager Salary: " + calculateSalary());
+    }
+}
+
+class Programmer extends Employee {
+    double baseSalary;
+    double overtimePay;
+
+    public Programmer(String name, int id, double baseSalary, double overtimePay) {
+        super(name, id);
+        this.baseSalary = baseSalary;
+        this.overtimePay = overtimePay;
+    }
+
+    @Override
+    public double calculateSalary() {
+        return baseSalary + overtimePay;
+    }
+
+    @Override
+    public void displayInfo() {
+        System.out.println("Programmer Name: " + name);
+        System.out.println("Programmer ID: " + id);
+        System.out.println("Programmer Salary: " + calculateSalary());
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Employee manager = new Manager("Alice", 101, 5000, 1500);
+        manager.displayInfo();
+        
+        Employee programmer = new Programmer("Bob", 102, 4000, 800);
+        programmer.displayInfo();
+    }
+}
+
+<img src="ss/19.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

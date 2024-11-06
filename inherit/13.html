@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>13. Create a program, showing an example of method overriding</span>
+class Animal {
+    public void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        animal.sound();
+
+        Animal dog = new Dog();
+        dog.sound();
+    }
+}
+
+<img src="ss/13.png" style="height: 100px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

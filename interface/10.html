@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>10. Write a Java program to create an interface Encryptable with methods encrypt (String data) and decrypt (String encryptedData) that define encryption and decryption operations. Create two classes AES and RSA that implement the Encryptable interface and provide their own encryption and decryption algorithms.</span>
+import java.util.Base64;
+
+interface Encryptable {
+    String encrypt(String data);
+    String decrypt(String encryptedData);
+}
+
+class AES implements Encryptable {
+    @Override
+    public String encrypt(String data) {
+        return Base64.getEncoder().encodeToString(data.getBytes());
+    }
+
+    @Override
+    public String decrypt(String encryptedData) {
+        byte[] decodedBytes = Base64.getDecoder().decode(encryptedData);
+        return new String(decodedBytes);
+    }
+}
+
+class RSA implements Encryptable {
+    @Override
+    public String encrypt(String data) {
+        return new StringBuilder(data).reverse().toString(); // Simple reversal encryption for demo purposes
+    }
+
+    @Override
+    public String decrypt(String encryptedData) {
+        return new StringBuilder(encryptedData).reverse().toString(); // Reverse back to original string
+    }
+}
+
+class main {
+    public static void main(String[] args) {
+        String originalData = "Hello, this is a secret message!";
+
+        Encryptable aesEncryptor = new AES();
+        Encryptable rsaEncryptor = new RSA();
+
+        String aesEncrypted = aesEncryptor.encrypt(originalData);
+        String aesDecrypted = aesEncryptor.decrypt(aesEncrypted);
+        
+        String rsaEncrypted = rsaEncryptor.encrypt(originalData);
+        String rsaDecrypted = rsaEncryptor.decrypt(rsaEncrypted);
+
+        System.out.println("Original Data: " + originalData);
+        System.out.println("AES Encrypted: " + aesEncrypted);
+        System.out.println("AES Decrypted: " + aesDecrypted);
+        System.out.println("RSA Encrypted: " + rsaEncrypted);
+        System.out.println("RSA Decrypted: " + rsaDecrypted);
+    }
+}
+
+<img src="ss/10.png" style="height: 130px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

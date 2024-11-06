@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>13. Create an applet in Java to set font.</span>
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+
+class FontApplet extends Applet {
+    public void init() {
+        setBackground(Color.WHITE);
+    }
+
+    public void paint(Graphics g) {
+        Font font = new Font("Arial", Font.BOLD, 24);
+        g.setFont(font);
+        g.setColor(Color.BLACK);
+        g.drawString("Hello, Java Applet!", 50, 100);
+    }
+}
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

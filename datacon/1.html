@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>1. How to convert String to int</span>
+import java.util.Scanner;
+
+class main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a number as a string: ");
+        String numberString = scanner.nextLine();
+
+        try {
+            int number = Integer.parseInt(numberString);
+            System.out.println("The converted integer is: " + number);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid number format: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+}
+
+        <img src="ss/1.png" style="height: 150px;">
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>

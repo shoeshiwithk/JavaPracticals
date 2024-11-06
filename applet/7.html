@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="frame.css">
+    </head>
+    <body>
+        <div class="banner">
+<p>
+    <pre>
+<span>7. Create an applet in Java to draw a 4 concentric circles.</span>
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Graphics;
+
+class ConcentricCirclesApplet extends Applet {
+    public void paint(Graphics g) {
+        g.setColor(Color.BLUE);
+        for (int i = 0; i &lt; 4; i++) {
+            g.drawOval(50 + i * 20, 50 + i * 20, 100 - i * 40, 100 - i * 
+            40);
+        }
+    }
+}
+</pre>
+</p>
+            
+        </div>
+    </body>
+</html>
